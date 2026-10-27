@@ -11,13 +11,12 @@
         <header>
             <h1>About Tyquire</h1>
             <p>
-                I love Typst because its markup is concise and it handles the things I need in
+                This template uses Typst because its markup is concise and handles the needs of
                 technical writing: mathematics, scripting, and diagrams.
             </p>
             <p>
-                I wanted the same source to work directly on the web and seeing that Typst's HTML
-                export and MathML support has matured significantly in the past year, I decided to
-                put together a blog template built on SvelteKit that can render Typst content.
+                It is designed to render the same source directly on the web, combining Typst's HTML
+                export and MathML support with SvelteKit to produce a static blog.
             </p>
             <p>
                 At its core Tyquire is simply a Vite plugin that connects Typst to this site. It

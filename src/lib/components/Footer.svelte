@@ -14,7 +14,7 @@
     <div class="flex flex-col items-center gap-2 text-center font-monospace">
         <span class="text-xs text-faint-foreground uppercase tracking-widest">
             {config.name} &copy; {config.year} &dotsquare;
-            <a href="https://github.com/chinzhening/tyquire-template">Tyquire</a>
+            <a href={config.repositoryUrl}>Tyquire</a>
         </span>
         <nav
             class="

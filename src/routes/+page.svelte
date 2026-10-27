@@ -15,18 +15,18 @@
             <li>Svelte 5 and SvelteKit 2</li>
         </ul>
         <h1>2. Features</h1>
-        <p></p>
+        <p>The template includes the essentials for publishing technical writing:</p>
         <ul>
             <li>
-                Typst authored blog posts. Diagrams, math, and other rich content created with Typst
-                is supported out of the box.
+                Typst-authored blog posts. Diagrams, math, and other rich content created with Typst
+                are supported out of the box.
             </li>
             <li>
                 Typst-svelte interop. Typst authored content can be rendered as Svelte components,
-                allowing for
+                allowing for custom presentation without changing the source document.
             </li>
             <li>Easily extensible.</li>
-            <li>Configurable `shiki` syntax highlighting for code blocks.</li>
+            <li>Configurable Shiki syntax highlighting for code blocks.</li>
             <li>
                 Clean design following Shibui (渋い) aesthetics. The default theme is inspired by
                 the <a href="https://ntk148v.github.io/shibui/">Shibui</a>

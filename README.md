@@ -10,7 +10,8 @@ and renders those blocks with Svelte components.
 
 - Node.js 22 or newer.
 - Typst 0.15.0 or newer with HTML export support.
-- The bundled `DejaVu Sans Mono` font is used for Typst output.
+- Typst output uses the fonts available to the Typst process. Set
+  `TYPST_FONT_PATH` when a custom font directory is needed.
 
 ## Getting started
 
@@ -125,5 +126,6 @@ directory.
 
 ## License and customization
 
-Replace the placeholder values in `src/lib/config.ts`, update the site copy,
-and customize the theme and article styles for your site.
+Replace the placeholder values, including the repository and contact links, in
+`src/lib/config.ts`. Then update the site copy and customize the theme and
+article styles for your site.

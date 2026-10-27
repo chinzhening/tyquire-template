@@ -23,9 +23,10 @@ without changing the original repository.
 
 Clone your fork and move into the project directory:
 ```shell
-git clone https://github.com/your-name/tyquire-template.git
-cd tyquire-template
+git clone https://github.com/<your-account>/<your-repository>.git
+cd <your-repository>
 ```
+You can rename the fork to whatever you like before cloning it.
 
 Install #link("https://nodejs.org/en/download")[Node.js 22 or newer] and
 #link("https://typst.app/open-source/")[Typst 0.15.0 or newer]. Tyquire uses
@@ -47,15 +48,16 @@ Open the local URL printed in your terminal, usually
 when source files change. Stop it with `Ctrl+C`.
 
 = Make a change
-Posts live in `src/lib/content/` and use the `.typ` extension. 
-Open `src/lib/content/getting-started.typ` and try fixing the _typo_ on this page, try fixing the typo on this page.
+Posts live in `src/lib/content/` and use the `.typ` extension.
+Open `src/lib/content/getting-started.typ` and try fixing the _typo_ on this
+page.
 
 Save the Typst source and the development server rebuilds the site.
 
 Refresh the browser to see the change reflected. Your typo is now fixed!
 
 = Writing a post
-Every `.typ` file under `content/` is a post. Post metadata is 
+Every `.typ` file under `src/lib/content/` is a post. Post metadata is
 declared within the `#show: article.with(...)` rule at the
 top of the file.
 
