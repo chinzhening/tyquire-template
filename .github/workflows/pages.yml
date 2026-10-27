@@ -31,6 +31,9 @@ jobs:
           node-version: 22
           cache: npm
 
+      - name: Pin npm
+        run: npm install --global npm@11
+
       - name: Set up Typst
         uses: typst-community/setup-typst@v4
         with:
