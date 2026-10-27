@@ -1,0 +1,4 @@
+# Normalise to LF everywhere. Without this, a Windows checkout with
+# core.autocrlf=true leaves CRLF in the working tree while Prettier writes
+# LF, so `prettier --check` passes in CI and fails locally on every file.
+* text=auto eol=lf

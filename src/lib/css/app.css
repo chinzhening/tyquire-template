@@ -1,0 +1,141 @@
+@import 'tailwindcss';
+@import './shibui.css';
+@import './math.css';
+
+@theme {
+	--color-surface-1: var(--surface-1);
+	--color-surface-2: var(--surface-2);
+	--color-border: var(--border);
+	--color-background: var(--background);
+
+	/*
+	 * Text ramp, brightest to faintest. Use these instead of ad-hoc opacity
+	 * modifiers (`text-muted-foreground/80`) so the steps stay countable.
+	 *
+	 * Each step is its own lightness, not an alpha of the one above. Alpha
+	 * over a pure-black background put dim at 4.08:1 and faint at 2.33:1,
+	 * both under the 4.5:1 WCAG 1.4.3 needs for body text. Every step now
+	 * clears it in both themes; the floor is faint at 4.89:1 dark.
+	 */
+	--color-foreground: var(--text-1);
+	--color-muted-foreground: var(--text-2);
+	--color-dim-foreground: var(--text-3);
+	--color-faint-foreground: var(--text-4);
+
+	/*
+	 * Stacks are composed from the raw families in fonts.css. Do not write
+	 * `--font-x: var(--font-x), …` here — that is a self-reference, and it
+	 * resolves today only because theme.css happens to win the cascade.
+	 */
+	--font-sans: ui-sans-serif, system-ui, sans-serif;
+	--font-system-ui: ui-sans-serif, system-ui, sans-serif;
+	--font-sans-serif: ui-sans-serif, system-ui, sans-serif;
+	--font-monospace: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@custom-variant dark (&:is([color-scheme='dark'] *));
+
+html,
+body {
+	height: 100%;
+
+	/* Hide scrollbar globally */
+	-ms-overflow-style: none; /* IE 10+ & Legacy Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+	display: none; /* Chrome, Safari, Edge, Opera */
+}
+
+html {
+	color: var(--text-1);
+	background: var(--background);
+}
+
+body {
+	margin: 0;
+	background: transparent;
+}
+
+ul,
+ol {
+	list-style: none;
+	padding: 0;
+}
+
+li {
+	padding-inline-start: 0;
+}
+
+/* Selection color */
+::selection {
+	background-color: var(--selection);
+	color: var(--text-1);
+}
+
+.section-heading {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	color: var(--text-1);
+	font-family: var(--font-monospace);
+	font-size: 0.875rem;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+.external-link {
+	color: var(--text-1);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.page-content {
+	max-width: 80ch;
+	margin-inline: auto;
+	padding-inline: 1.5rem;
+}
+
+.page-prose {
+	min-height: 100vh;
+	background: var(--background);
+	padding-bottom: 5rem;
+	color: var(--text-1);
+	font-family: var(--font-monospace);
+}
+
+.page-prose h1 {
+	margin-top: 2rem;
+}
+
+.page-prose h1,
+.page-prose h2 {
+	color: var(--text-1);
+	font-size: 0.875rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	line-height: 1.25;
+	text-wrap: balance;
+	text-transform: uppercase;
+}
+
+.page-prose p {
+	margin-top: 0.5rem;
+}
+
+.page-prose ul {
+	margin: 0.75rem 0 0;
+	padding-left: 1.25rem;
+	list-style: square;
+}
+
+.page-prose li {
+	margin-top: 0.35rem;
+}
+
+.page-prose a {
+	color: var(--text-1);
+}

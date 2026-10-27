@@ -1,0 +1,18 @@
+/* Follow the system preference when no manual theme is selected */
+@media (prefers-color-scheme: dark) {
+	:root:not([color-scheme]) .shiki,
+	:root:not([color-scheme]) .shiki span {
+		color: var(--shiki-dark) !important;
+	}
+}
+
+/* Follow the manual theme toggle */
+:root[color-scheme='dark'] .shiki,
+:root[color-scheme='dark'] .shiki span {
+	color: var(--shiki-dark) !important;
+}
+
+/* Set background color to transparent for code blocks */
+.shiki {
+	background-color: transparent !important;
+}

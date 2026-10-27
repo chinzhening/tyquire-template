@@ -1,0 +1,100 @@
+/*
+ * Shibui-inspired theme for the Tyquire template.
+ *
+ * Adapted from Shibui by ntk148v:
+ * https://github.com/ntk148v/shibui
+ * Shibui is distributed under the MIT license.
+ */
+
+html {
+	--shibui-light-background: hsl(0 0% 99%);
+	--shibui-light-surface: hsl(0 0% 97%);
+	--shibui-light-border: hsl(0 0% 93%);
+	--shibui-light-selection: hsl(0 0% 86%);
+	--shibui-light-primary: hsl(0 0% 8%);
+	--shibui-light-muted: hsl(0 0% 30%);
+
+	--shibui-dark-background: hsl(0 0% 8%);
+	--shibui-dark-surface: hsl(0 0% 11%);
+	--shibui-dark-border: hsl(0 0% 20%);
+	--shibui-dark-selection: hsl(0 0% 27%);
+	--shibui-dark-primary: hsl(0 0% 92%);
+	--shibui-dark-muted: hsl(0 0% 70%);
+}
+
+:root {
+	--text-1: var(--shibui-dark-primary);
+	--text-2: var(--shibui-dark-muted);
+	--text-3: var(--shibui-dark-muted);
+	--text-4: hsl(0 0% 50%);
+	--surface-1: var(--shibui-dark-surface);
+	--surface-2: var(--shibui-dark-surface);
+	--background: var(--shibui-dark-background);
+	--border: var(--shibui-dark-border);
+	--selection: var(--shibui-dark-selection);
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--text-1: var(--shibui-light-primary);
+		--text-2: var(--shibui-light-muted);
+		--text-3: var(--shibui-light-muted);
+		--text-4: hsl(0 0% 48%);
+		--surface-1: var(--shibui-light-surface);
+		--surface-2: var(--shibui-light-surface);
+		--background: var(--shibui-light-background);
+		--border: var(--shibui-light-border);
+		--selection: var(--shibui-light-selection);
+	}
+}
+
+:root[color-scheme='light'] {
+	--text-1: var(--shibui-light-primary);
+	--text-2: var(--shibui-light-muted);
+	--text-3: var(--shibui-light-muted);
+	--text-4: hsl(0 0% 48%);
+	--surface-1: var(--shibui-light-surface);
+	--surface-2: var(--shibui-light-surface);
+	--background: var(--shibui-light-background);
+	--border: var(--shibui-light-border);
+	--selection: var(--shibui-light-selection);
+}
+
+:root[color-scheme='dark'] {
+	--text-1: var(--shibui-dark-primary);
+	--text-2: var(--shibui-dark-muted);
+	--text-3: var(--shibui-dark-muted);
+	--text-4: hsl(0 0% 50%);
+	--surface-1: var(--shibui-dark-surface);
+	--surface-2: var(--shibui-dark-surface);
+	--background: var(--shibui-dark-background);
+	--border: var(--shibui-dark-border);
+	--selection: var(--shibui-dark-selection);
+}
+
+body {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+	font-size: 0.75rem;
+	line-height: 1.5;
+}
+
+a {
+	color: var(--text-1);
+	border-bottom: 1px dotted currentColor;
+}
+
+a:hover {
+	color: var(--text-2);
+}
+
+pre {
+	border: 1px solid var(--border);
+	border-radius: 0.25rem;
+	box-shadow: 0 1px 2px var(--border);
+}
+
+.typst code:not(pre code) {
+	border: 1px solid var(--border);
+	border-radius: 0.25rem;
+	background: var(--surface-1);
+}

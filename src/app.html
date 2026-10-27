@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="%sveltekit.assets%/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="text-scale" content="scale" />
+        %sveltekit.head%
+
+        <script>
+            // This sets the initial color scheme based on the user's preference
+            // or saved theme in localStorage.
+            (() => {
+                const saved = localStorage.getItem('theme');
+
+                if (saved === 'light' || saved === 'dark') {
+                    document.documentElement.setAttribute('color-scheme', saved);
+                }
+            })();
+        </script>
+    </head>
+    <body data-sveltekit-preload-data="hover" class="flex flex-col min-h-screen antialiasedfe">
+        <div style="display: contents">%sveltekit.body%</div>
+    </body>
+</html>
