@@ -77,6 +77,8 @@ The first release is intentionally focused on a static Typst blog:
 - Responsive light and dark themes.
 - Generic static-host deployment documentation.
 - A small, documented validation layer for serialized metadata query output.
+- Generated sitemap for public pages and published posts.
+- RSS feed for published posts.
 
 The following are outside the v0.1 core and can be added by template users:
 
@@ -129,6 +131,8 @@ directory.
 
 Replace the placeholder values, including the repository and contact links, in
 `src/lib/config.ts`. Set `siteUrl` to the public site origin to enable
-canonical URLs and absolute Open Graph URLs. Set `socialImageUrl` to an
-absolute social preview image URL if one is available. Then update the site
-copy and customize the theme and article styles for your site.
+canonical URLs, absolute Open Graph URLs, a valid sitemap, and absolute RSS
+links. Set `socialImageUrl` to an absolute social preview image URL if one is
+available. The generated `sitemap.xml` and `rss.xml` include published posts
+only; set `siteUrl` before deploying so their links are absolute. Then update
+the site copy and customize the theme and article styles for your site.
