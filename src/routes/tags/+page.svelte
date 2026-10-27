@@ -1,7 +1,7 @@
 <script lang="ts">
     import { browser } from '$app/environment';
     import { page } from '$app/state';
-    import { title } from '$lib/config';
+    import Seo from '$lib/components/Seo.svelte';
     import { getPostsByTag, getTagLabel, normalizeTag } from '$lib/posts';
     import Tag from '$lib/components/Tag.svelte';
     import { formatDate } from '$lib/utils';
@@ -14,9 +14,7 @@
     let matchingPosts = $derived(getPostsByTag(data.posts, selectedTag));
 </script>
 
-<svelte:head>
-    <title>Tags | {title}</title>
-</svelte:head>
+<Seo title="Tags" path="/tags" />
 
 <main id="main" class="tags-page">
     <div class="tags-content">

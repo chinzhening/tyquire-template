@@ -1,14 +1,12 @@
 <script lang="ts">
     import { formatDate } from '$lib/utils';
-    import { title } from '$lib/config';
+    import Seo from '$lib/components/Seo.svelte';
     import type { PageProps } from './$types';
 
     let { data }: PageProps = $props();
 </script>
 
-<svelte:head>
-    <title>Posts | {title}</title>
-</svelte:head>
+<Seo title="Posts" path="/posts" />
 
 <main id="main" class="posts-page">
     <section class="posts-content">

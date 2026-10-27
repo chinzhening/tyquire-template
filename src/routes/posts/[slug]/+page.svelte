@@ -1,7 +1,7 @@
 <script lang="ts">
     import '$lib/css/article.css';
 
-    import { title } from '$lib/config';
+    import Seo from '$lib/components/Seo.svelte';
     import Tag from '$lib/components/Tag.svelte';
     import PostNavigation from '$lib/components/PostNavigation.svelte';
     import { components } from '$lib/components/article/components';
@@ -14,9 +14,13 @@
     let { metadata, children: nodes, prevPost, nextPost } = $derived(data);
 </script>
 
-<svelte:head>
-    <title>{metadata.title} | {title}</title>
-</svelte:head>
+<Seo
+    title={metadata.title}
+    description={metadata.desc}
+    path={`/posts/${data.slug}`}
+    type="article"
+    publishedAt={metadata.publish_date}
+/>
 
 <div class="relative text-foreground min-h-screen">
     <main id="main" class="pt-8 pb-12 md:pt-16">

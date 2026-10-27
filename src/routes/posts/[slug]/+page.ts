@@ -12,6 +12,7 @@ export async function load({ params, parent }) {
     const { posts } = await parent();
     const { prevPost, nextPost } = getPrevAndNextPostLinks(posts, params.slug);
     return {
+        slug: params.slug,
         metadata,
         children,
         prevPost,

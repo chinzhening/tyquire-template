@@ -88,6 +88,7 @@ The following are outside the v0.1 core and can be added by template users:
 - Server-side features.
 - Multiple deployment adapters.
 - Pagination and related-post recommendations.
+- Automatic SVG dark mode adaptation.
 
 ## Static deployment
 
@@ -127,5 +128,7 @@ directory.
 ## License and customization
 
 Replace the placeholder values, including the repository and contact links, in
-`src/lib/config.ts`. Then update the site copy and customize the theme and
-article styles for your site.
+`src/lib/config.ts`. Set `siteUrl` to the public site origin to enable
+canonical URLs and absolute Open Graph URLs. Set `socialImageUrl` to an
+absolute social preview image URL if one is available. Then update the site
+copy and customize the theme and article styles for your site.

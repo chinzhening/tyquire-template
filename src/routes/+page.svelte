@@ -1,10 +1,9 @@
 <script lang="ts">
     import * as config from '$lib/config';
+    import Seo from '$lib/components/Seo.svelte';
 </script>
 
-<svelte:head>
-    <title>{config.title}</title>
-</svelte:head>
+<Seo title={config.title} path="/" />
 
 <main id="main" class="page-prose">
     <div class="page-content">
