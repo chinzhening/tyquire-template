@@ -2,28 +2,45 @@
 
 #let is-html() = target() == "html"
 
-// Emit a block component marker for the HTML renderer.
-#let component(name, body, ..props) = context {
-  if is-html() {
-    html.elem("div", attrs: (
-      "data-typst-node": name,
-      "data-typst-props": json.encode(props.named(), pretty: false),
-    ), body)
-  } else {
-    body
+#let component-labels = (label("typst-component"), label("typst-inline-component"))
+
+// Emit a block component marker for HTML, with an optional paged fallback.
+#let component(name, body, paged: none, ..props) = {
+  let node = context {
+    if is-html() {
+      html.elem("div", attrs: (
+        "data-typst-node": name,
+        "data-typst-props": json.encode(props.named(), pretty: false),
+      ), body)
+    } else if paged != none {
+      paged(body)
+    } else {
+      body
+    }
   }
+  [#node#label("typst-component")]
 }
 
-// Emit an inline component marker for the HTML renderer.
-#let inline-component(name, body, ..props) = context {
-  if is-html() {
-    html.elem("span", attrs: (
-      "data-typst-node": name,
-      "data-typst-props": json.encode(props.named(), pretty: false),
-    ), body)
-  } else {
-    body
+#let is-component(node) = (
+  type(node) == content and node.has("label") and node.label in component-labels
+)
+
+
+// Emit an inline component marker for HTML, with an optional paged fallback.
+#let inline-component(name, body, paged: none, ..props) = {
+  let node = context {
+    if is-html() {
+      html.elem("span", attrs: (
+        "data-typst-node": name,
+        "data-typst-props": json.encode(props.named(), pretty: false),
+      ), body)
+    } else if paged != none {
+      paged(body)
+    } else {
+      body
+    }
   }
+  [#node#label("typst-inline-component")]
 }
 
 // Preserve named child content for components that expose slots.
@@ -43,25 +60,30 @@
     line(length: 100%)
   }
 }
-
 // Register the figure component and keep captions as named slots.
-#let figure-rules(body) = context {
-  if is-html() {
-    show figure: it => component("figure", {
-      if it.kind == image {
-        html.frame[#it.body]
+#let figure-rules(body) = {
+  show figure: it => if is-html() {
+    component("figure", {
+      let e = it.body
+      if is-component(e) or (type(e) == content and e.func() == html.elem) {
+        e
+      } else if it.kind == image {
+        html.frame(e)
       } else {
-        it.body
+        e
       }
       if it.caption != none {
-        slot("caption-label", [#it.supplement #context it.counter.display(it.numbering).])
+        slot("caption-label", [#it.supplement #context numbering(
+          it.numbering,
+          ..counter(figure.where(kind: it.kind)).get(),
+        ).])
         slot("caption", it.caption.body)
       }
     })
-    body
   } else {
-    body
+    it
   }
+  body
 }
 
 // Build the metadata block consumed by the content pipeline.
@@ -118,7 +140,6 @@
     tags,
   )
 
-  show: figure-rules
-
-  content
+    show: figure-rules
+    content
 }
