@@ -61,37 +61,6 @@ Write the post here.
 - `vite.config.ts` - Tyquire and Shiki integration.
 - `svelte.config.js` - SvelteKit adapter and the `$tyquire` alias.
 
-## v0.1 feature plan
-
-The first release is intentionally focused on a static Typst blog:
-
-- Static SvelteKit output through `adapter-static`.
-- Typst-to-Svelte compilation through the included Tyquire plugin.
-- Typed post metadata and published-post filtering.
-- Post archive and individual post pages.
-- Previous and next post navigation.
-- Query-based tags at `/tags?tag=example`.
-- Syntax-highlighted code blocks.
-- MathML and Typst figure rendering.
-- Labelled callouts and custom article blocks.
-- Responsive light and dark themes.
-- Generic static-host deployment documentation.
-- A small, documented validation layer for serialized metadata query output.
-- Generated sitemap for public pages and published posts.
-- RSS feed for published posts.
-
-The following are outside the v0.1 core and can be added by template users:
-
-- Projects and portfolio pages.
-- Search.
-- Comments and reactions.
-- Analytics.
-- CMS integrations.
-- Server-side features.
-- Multiple deployment adapters.
-- Pagination and related-post recommendations.
-- Automatic SVG dark mode adaptation.
-
 ## Static deployment
 
 The site is built as static files in `build/` and can be deployed to any
