@@ -3,9 +3,13 @@ import { resolve } from '$app/paths';
 import type { PostMetadata } from '$lib/types';
 import { toKebabCase } from '$lib/utils';
 
-export interface PostSummary extends PostMetadata {
+export interface PostEntry extends PostMetadata {
     slug: string;
     href: string;
+}
+
+export type PublishedPost = PostEntry & {
+    publish_date: string;
 }
 
 export interface TagSummary {
@@ -104,7 +108,7 @@ function validateDate(
     return { value, timestamp };
 }
 
-export function getPosts(): PostSummary[] {
+export function getPosts(): PublishedPost[] {
     const modules = import.meta.glob<{ metadata: PostMetadata }>('$lib/content/*.typ', {
         eager: true
     });
@@ -115,10 +119,8 @@ export function getPosts(): PostSummary[] {
             slug,
             href: resolve(`/posts/${slug}`),
             ...validatePostMetadata(mod.metadata, path)
-        };
+        } as PostEntry;
     });
-
-    type PublishedPost = (typeof posts)[number] & { publish_date: string };
 
     const publishedPosts = posts.filter(
         (post): post is PublishedPost => typeof post.publish_date === 'string'
@@ -130,9 +132,9 @@ export function getPosts(): PostSummary[] {
 }
 
 export function getPrevAndNextPostLinks(
-    posts: PostSummary[],
+    posts: PublishedPost[],
     slug: string
-): { prevPost: PostSummary | null; nextPost: PostSummary | null } {
+): { prevPost: PublishedPost | null; nextPost: PublishedPost | null } {
     const index = posts.findIndex((post) => post.slug === slug);
 
     return {
@@ -149,7 +151,7 @@ export function getTagHref(tag: string): string {
     return `${resolve('/tags')}?tag=${encodeURIComponent(normalizeTag(tag))}`;
 }
 
-export function getPostsByTag(posts: PostSummary[], tag: string): PostSummary[] {
+export function getPostsByTag(posts: PublishedPost[], tag: string): PublishedPost[] {
     const normalizedTag = normalizeTag(tag);
     if (!normalizedTag) {
         return [];
@@ -158,7 +160,7 @@ export function getPostsByTag(posts: PostSummary[], tag: string): PostSummary[] 
     return posts.filter((post) => post.tags.some((t) => normalizeTag(t) === normalizedTag));
 }
 
-export function getTagSummaries(posts: PostSummary[]): TagSummary[] {
+export function getTagSummaries(posts: PublishedPost[]): TagSummary[] {
     const tagMap = new Map<
         string,
         {
@@ -207,7 +209,7 @@ export function getTagSummaries(posts: PostSummary[]): TagSummary[] {
         .sort((a, b) => a.label.localeCompare(b.label));
 }
 
-export function getTagLabel(posts: PostSummary[], tag: string): string | null {
+export function getTagLabel(posts: PublishedPost[], tag: string): string | null {
     const normalizedTag = normalizeTag(tag);
     return getTagSummaries(posts).find((summary) => summary.slug === normalizedTag)?.label ?? null;
 }
