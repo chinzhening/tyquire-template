@@ -5,7 +5,6 @@
 #show: article.with(
   title: "A Small Tour of Math in Typst",
   desc: [A compact reference for writing inline math, equations, and symbols in a Tyquire post.],
-  published: true,
   publish_date: datetime(year: 2026, month: 10, day: 27),
   tags: ("math", "typst"),
 )

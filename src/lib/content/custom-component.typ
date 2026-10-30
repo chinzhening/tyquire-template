@@ -4,7 +4,6 @@
 #show: article.with(
   title: "Building a Custom Article Component",
   desc: [A step-by-step guide to connecting a Typst marker with a Svelte component.],
-  published: true,
   publish_date: datetime(year: 2026, month: 10, day: 28),
   tags: ("typst", "svelte", "components"),
 )

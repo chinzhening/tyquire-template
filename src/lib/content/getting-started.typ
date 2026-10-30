@@ -5,7 +5,6 @@
 #show: article.with(
   title: "Getting Started with Tyquire",
   desc: [],
-  published: true,
   publish_date: datetime(year: 2026, month: 10, day: 27),
   tags: (
     "tyquire", "docs"

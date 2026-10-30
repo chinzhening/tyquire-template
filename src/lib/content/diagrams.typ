@@ -8,7 +8,6 @@
 #show: article.with(
   title: "Callouts, Figures, and Diagrams",
   desc: [A short guide to the visual building blocks available in a Tyquire post.],
-  published: true,
   publish_date: datetime(year: 2026, month: 10, day: 27),
   tags: ("typst", "diagrams", "tyquire"),
 )

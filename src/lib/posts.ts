@@ -25,24 +25,29 @@ export function validatePostMetadata(value: unknown, fileId: string): PostMetada
     if (typeof value.desc !== 'string') {
         throw new Error(`Invalid metadata in ${fileId}: desc must be a string`);
     }
-    if (typeof value.published !== 'boolean') {
-        throw new Error(`Invalid metadata in ${fileId}: published must be a boolean`);
-    }
+
     const title = value.title;
     const desc = value.desc;
-    const published = value.published;
 
-    const publishDate = validateDate(value.publish_date, 'publish_date', fileId);
+    const publishDate =
+        value.publish_date !== undefined
+            ? validateDate(value.publish_date, 'publish_date', fileId)
+            : undefined;
     const editedDate =
         value.edited_date !== undefined
             ? validateDate(value.edited_date, 'edited_date', fileId)
             : undefined;
-    if (editedDate) {
-        if (editedDate.timestamp < publishDate.timestamp) {
-            throw new Error(
-                `Invalid metadata in ${fileId}: edited_date must not be earlier than publish_date`
-            );
-        }
+
+    if (editedDate && publishDate === undefined) {
+        throw new Error(
+            `Invalid metadata in ${fileId}: edited_date is present but publish_date is missing`
+        );
+    }
+
+    if (editedDate && publishDate && editedDate.timestamp < publishDate.timestamp) {
+        throw new Error(
+            `Invalid metadata in ${fileId}: edited_date must not be earlier than publish_date`
+        );
     }
 
     if (!isNonEmptyStringArray(value.tags)) {
@@ -54,8 +59,7 @@ export function validatePostMetadata(value: unknown, fileId: string): PostMetada
     return {
         title,
         desc,
-        published,
-        publish_date: publishDate.value,
+        ...(publishDate ? { publish_date: publishDate.value } : {}),
         ...(editedDate ? { edited_date: editedDate.value } : {}),
         tags: value.tags
     };
@@ -81,7 +85,18 @@ function validateDate(
         throw new Error(`Invalid metadata in ${fileId}: ${field} must be a date string`);
     }
 
+    // ISO 8601 date format, with optional milliseconds and timezone.
+    const iso8601Regex =
+        /^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2}))?$/;
+
+    if (!iso8601Regex.test(value)) {
+        throw new Error(
+            `Invalid metadata in ${fileId}: ${field}='${value}' must be an ISO 8601 date`
+        );
+    }
+
     const timestamp = Date.parse(value);
+
     if (!Number.isFinite(timestamp)) {
         throw new Error(`Invalid metadata in ${fileId}: ${field} must be a valid date`);
     }
@@ -103,11 +118,13 @@ export function getPosts(): PostSummary[] {
         };
     });
 
-    const publishedPosts = posts.filter((post) => post.published);
+    type PublishedPost = (typeof posts)[number] & { publish_date: string };
 
-    publishedPosts.sort(
-        (a, b) => new Date(b.publish_date).getTime() - new Date(a.publish_date).getTime()
+    const publishedPosts = posts.filter(
+        (post): post is PublishedPost => typeof post.publish_date === 'string'
     );
+
+    publishedPosts.sort((a, b) => b.publish_date.localeCompare(a.publish_date));
 
     return publishedPosts;
 }

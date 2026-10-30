@@ -90,15 +90,16 @@
 #let generate-metadata(
   title,
   desc,
-  published,
   publish_date,
   edited_date,
   tags,
 ) = {
-  if edited_date != none and publish_date != none [ #metadata(
+  assert(publish_date == none or type(publish_date) == datetime)
+  assert(edited_date == none or type(edited_date) == datetime)
+
+  if edited_date != none and publish_date != none [#metadata(
     (title: title,
      desc: desc,
-     published: published,
      publish_date: publish_date.display(),
      edited_date: edited_date.display(),
      tags: tags
@@ -107,7 +108,6 @@
   else if publish_date != none [ #metadata(
     (title: title,
      desc: desc,
-     published: published,
      publish_date: publish_date.display(),
      tags: tags
     )
@@ -115,7 +115,6 @@
   else [ #metadata(
     (title: title,
      desc: desc,
-     published: published,
      tags: tags
     )
   ) <metadata>]
@@ -126,7 +125,6 @@
   content,
   title: "Untitled",
   desc: [This is a blog post.],
-  published: false,
   publish_date: none,
   edited_date: none,
   tags: (),
@@ -134,7 +132,6 @@
   generate-metadata(
     title,
     desc,
-    published,
     publish_date,
     edited_date,
     tags,
