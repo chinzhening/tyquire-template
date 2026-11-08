@@ -9,6 +9,7 @@ and renders those blocks with Svelte components.
 ## Requirements
 
 - Node.js 22 or newer.
+- Pnpm 12.17.0
 - Typst 0.15.0 or newer with HTML export support.
 - Typst output uses the fonts available to the Typst process. Set
   `TYPST_FONT_PATH` when a custom font directory is needed.
@@ -16,8 +17,8 @@ and renders those blocks with Svelte components.
 ## Getting started
 
 ```sh
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Add posts as `.typ` files in `src/lib/content/`. A post imports the shared
@@ -43,12 +44,12 @@ Write the post here.
 
 | Command           | Description                        |
 | ----------------- | ---------------------------------- |
-| `npm run dev`     | Start the development server       |
-| `npm run build`   | Build the static site              |
-| `npm run preview` | Preview the production build       |
-| `npm run check`   | Run Svelte and Tyquire type checks |
-| `npm run lint`    | Check formatting and lint rules    |
-| `npm run format`  | Format project files               |
+| `pnpm dev`     | Start the development server       |
+| `pnpm build`   | Build the static site              |
+| `pnpm preview` | Preview the production build       |
+| `pnpm check`   | Run Svelte and Tyquire type checks |
+| `pnpm lint`    | Check formatting and lint rules    |
+| `pnpm format`  | Format project files               |
 
 ## Project structure
 
@@ -67,7 +68,7 @@ The site is built as static files in `build/` and can be deployed to any
 static host. Set `BASE_PATH` when deploying below a domain root, then run:
 
 ```sh
-npm run build
+pnpm build
 ```
 
 The generated `build/` directory is the deployment artifact.
@@ -92,8 +93,8 @@ site, add a repository variable named `PAGES_CUSTOM_DOMAIN` with the value
 default project-site path for another hosting arrangement, set
 `PAGES_BASE_PATH` to the required path instead.
 
-The workflow installs Node.js 22 and Typst 0.15 before running `npm ci` and
-`npm run build`. The uploaded Pages artifact is the generated `build/`
+The workflow installs pnpm (and dependencies), Node.js and Typst before
+`pnpm build`. The uploaded Pages artifact is the generated `build/`
 directory.
 
 ## License and customization
