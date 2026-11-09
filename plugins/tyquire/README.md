@@ -5,12 +5,13 @@ Svelte. It compiles Typst HTML output, extracts a labelled metadata value, and
 converts the document into a typed tree rendered by Svelte components.
 
 The plugin is used by the blog template in the repository root. It is
-currently private and is not published as an npm package.
+currently private and is not published as a package.
 
 ## Requirements
 
 - Node.js 22 or newer
 - Typst 0.15.0 or newer with HTML export support
+- Pnpm 12.17.0
 - Vite 8
 
 ## Usage
@@ -91,8 +92,8 @@ available through `TypstComponentProps`.
 From the repository root:
 
 ```sh
-npm run check
-npm run build
+pnpm check
+pnpm build
 ```
 
 The plugin depends on Typst's HTML export, which is still experimental. Build
