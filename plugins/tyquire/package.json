@@ -3,8 +3,15 @@
     "version": "0.0.0",
     "private": true,
     "type": "module",
-    "engines": {
-        "node": ">=22"
+    "main": "./src/index.ts",
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "devEngines": {
+        "packageManager": {
+            "name": "pnpm",
+            "version": "12.17.0"
+        }
     },
     "dependencies": {
         "cheerio": "^1.2.0",
