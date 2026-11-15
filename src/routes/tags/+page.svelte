@@ -1,10 +1,10 @@
 <script lang="ts">
     import { browser } from '$app/env';
     import { page } from '$app/state';
-    import Seo from '$lib/components/Seo.svelte';
-    import { getPostsByTag, getTagLabel, normalizeTag } from '$lib/posts';
-    import Tag from '$lib/components/Tag.svelte';
-    import { formatDate } from '$lib/utils';
+    import Seo from '#lib/components/Seo.svelte';
+    import { getPostsByTag, getTagLabel, normalizeTag } from '#lib/posts.ts';
+    import Tag from '#lib/components/Tag.svelte';
+    import { formatDate } from '#lib/utils.ts';
     import type { PageProps } from './$types';
 
     let { data }: PageProps = $props();
@@ -33,9 +33,7 @@
             <h2 id="available-tags">Available tags</h2>
             <ul aria-label="Available tags">
                 {#each data.tags as tag (tag.slug)}
-                    <li>
-                        <Tag {tag} active={tag.slug === selectedTag} />
-                    </li>
+                    <li><Tag {tag} active={tag.slug === selectedTag} /></li>
                 {:else}
                     <li class="text-dim-foreground">No tags found.</li>
                 {/each}
@@ -55,11 +53,12 @@
                 <tbody>
                     {#each matchingPosts as post (post.slug)}
                         <tr>
-                            <td>
-                                <time datetime={post.publish_date}
+                            <td
+                                ><time datetime={post.publish_date}
                                     >{formatDate(post.publish_date)}</time
-                                >
-                            </td>
+                                ></td
+                            >
+
                             <td>
                                 <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- post.href is resolved in posts.ts -->
                                 <a href={post.href}>{post.title}</a>

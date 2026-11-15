@@ -1,8 +1,8 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import { page } from '$app/state';
-    import * as config from '$lib/config';
-    import { pages } from '$lib/config';
+    import * as config from '#lib/config.ts';
+    import { pages } from '#lib/config.ts';
     import { resolve } from '$app/paths';
 
     type Theme = 'light' | 'dark';

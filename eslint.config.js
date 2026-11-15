@@ -72,7 +72,7 @@ export default defineConfig(
                 {
                     patterns: [
                         {
-                            group: ['$lib', '$lib/*', '$app', '$app/*', '$tyquire'],
+                            group: ['#lib', '#lib/*', '$app', '$app/*', '$tyquire'],
                             message:
                                 'plugins/ is extracted as a standalone package and must not import app-space aliases.'
                         }

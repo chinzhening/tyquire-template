@@ -1,5 +1,5 @@
-import { getPosts } from '$lib/posts';
-import { escapeXml, getSiteUrl } from '$lib/seo';
+import { getPosts } from '#lib/posts.ts';
+import { escapeXml, getSiteUrl } from '#lib/seo.ts';
 
 export const prerender = true;
 

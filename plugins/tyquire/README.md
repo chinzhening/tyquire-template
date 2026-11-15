@@ -72,7 +72,7 @@ Use `TypstRenderer` with a component registry to render the compiled nodes:
 
 ```svelte
 <script lang="ts">
-    import { components } from '$lib/components/article/components';
+    import { components } from '#lib/components/article/components.ts';
     import TypstRenderer from '$tyquire/svelte/TypstRenderer.svelte';
 
     let { nodes } = $props();

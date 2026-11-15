@@ -1,6 +1,6 @@
-import { description, title } from '$lib/config';
-import { getPosts } from '$lib/posts';
-import { escapeXml, getSiteUrl } from '$lib/seo';
+import { description, title } from '#lib/config.ts';
+import { getPosts } from '#lib/posts.ts';
+import { escapeXml, getSiteUrl } from '#lib/seo.ts';
 
 export const prerender = true;
 

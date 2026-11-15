@@ -1,6 +1,6 @@
 <script lang="ts">
-    import * as config from '$lib/config';
-    import Seo from '$lib/components/Seo.svelte';
+    import * as config from '#lib/config.ts';
+    import Seo from '#lib/components/Seo.svelte';
 </script>
 
 <Seo title={config.title} path="/" />

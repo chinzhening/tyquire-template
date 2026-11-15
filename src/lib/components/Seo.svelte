@@ -5,7 +5,7 @@
         siteUrl,
         socialImageUrl,
         title as siteTitle
-    } from '$lib/config';
+    } from '#lib/config.ts';
 
     interface Props {
         title: string;

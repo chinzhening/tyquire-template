@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { getTagHref } from '$lib/posts';
+    import { getTagHref } from '#lib/posts.ts';
 
-    import type { TagSummary } from '$lib/posts';
+    import type { TagSummary } from '#lib/posts.ts';
 
     let {
         tag,

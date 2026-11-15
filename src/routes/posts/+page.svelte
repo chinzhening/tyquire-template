@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { formatDate } from '$lib/utils';
-    import Seo from '$lib/components/Seo.svelte';
+    import { formatDate } from '#lib/utils.ts';
+    import Seo from '#lib/components/Seo.svelte';
     import type { PageProps } from './$types';
 
     let { data }: PageProps = $props();

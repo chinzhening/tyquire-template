@@ -1,11 +1,11 @@
 <script lang="ts">
-    import '$lib/css/article.css';
+    import '#lib/css/article.css';
 
-    import Seo from '$lib/components/Seo.svelte';
-    import Tag from '$lib/components/Tag.svelte';
-    import PostNavigation from '$lib/components/PostNavigation.svelte';
-    import { components } from '$lib/components/article/components';
-    import { formatDate, toKebabCase } from '$lib/utils';
+    import Seo from '#lib/components/Seo.svelte';
+    import Tag from '#lib/components/Tag.svelte';
+    import PostNavigation from '#lib/components/PostNavigation.svelte';
+    import { components } from '#lib/components/article/components.ts';
+    import { formatDate, toKebabCase } from '#lib/utils.ts';
     import TypstRenderer from '$tyquire/svelte/TypstRenderer.svelte';
 
     import type { PageProps } from './$types';

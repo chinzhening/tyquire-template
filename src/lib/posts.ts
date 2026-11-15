@@ -1,7 +1,7 @@
 import { resolve } from '$app/paths';
 
-import type { PostMetadata } from '$lib/types';
-import { toKebabCase } from '$lib/utils';
+import type { PostMetadata } from '#lib/types.ts';
+import { toKebabCase } from '#lib/utils.ts';
 
 export interface PostEntry extends PostMetadata {
     slug: string;
@@ -105,7 +105,7 @@ function validateDate(
 }
 
 export function getPosts(): PublishedPost[] {
-    const modules = import.meta.glob<{ metadata: PostMetadata }>('$lib/content/*.typ', {
+    const modules = import.meta.glob<{ metadata: PostMetadata }>('#lib/content/*.typ', {
         eager: true
     });
 

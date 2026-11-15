@@ -1,7 +1,7 @@
 <script lang="ts">
     import { resolve } from '$app/paths';
     import { prefersReducedMotion } from 'svelte/motion';
-    import type { PublishedPost } from '$lib/posts';
+    import type { PublishedPost } from '#lib/posts.ts';
 
     let {
         prevPost = null,
