@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { browser } from '$app/environment';
+    import { browser } from '$app/env';
     import { page } from '$app/state';
     import Seo from '$lib/components/Seo.svelte';
     import { getPostsByTag, getTagLabel, normalizeTag } from '$lib/posts';
