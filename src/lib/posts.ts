@@ -7,11 +7,7 @@ export interface PostEntry extends PostMetadata {
     slug: string;
     href: string;
 }
-
-export type PublishedPost = PostEntry & {
-    publish_date: string;
-}
-
+export type PublishedPost = PostEntry & { publish_date: string };
 export interface TagSummary {
     slug: string;
     label: string;
@@ -117,7 +113,7 @@ export function getPosts(): PublishedPost[] {
         const slug = path.split('/').at(-1)!.replace('.typ', '');
         return {
             slug,
-            href: resolve(`/posts/${slug}`),
+            href: resolve(`posts/${slug}`),
             ...validatePostMetadata(mod.metadata, path)
         } as PostEntry;
     });
@@ -148,7 +144,7 @@ export function normalizeTag(tag: string): string {
 }
 
 export function getTagHref(tag: string): string {
-    return `${resolve('/tags')}?tag=${encodeURIComponent(normalizeTag(tag))}`;
+    return `${resolve('tags')}?tag=${encodeURIComponent(normalizeTag(tag))}`;
 }
 
 export function getPostsByTag(posts: PublishedPost[], tag: string): PublishedPost[] {

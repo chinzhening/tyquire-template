@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { base } from '$app/paths';
+    import { resolve } from '$app/paths';
     import {
         description as siteDescription,
         siteUrl,
@@ -24,7 +24,7 @@
     }: Props = $props();
 
     const pageTitle = $derived(title === siteTitle ? siteTitle : `${title} | ${siteTitle}`);
-    const canonicalPath = $derived(`${base}${path}`);
+    const canonicalPath = $derived(resolve(`${path}`.slice(1)));
     const canonicalUrl = $derived(
         siteUrl ? new URL(canonicalPath, `${siteUrl.replace(/\/+$/, '')}/`).toString() : undefined
     );

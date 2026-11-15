@@ -1,9 +1,10 @@
-import { base } from '$app/paths';
+import { resolve } from '$app/paths';
 
 import { siteUrl } from '$lib/config';
 
 export function getSiteUrl(path: string): string {
-    const sitePath = `${base}${path}`;
+    const sitePath = resolve(`${path}`.slice(1));
+
     return siteUrl ? new URL(sitePath, `${siteUrl.replace(/\/+$/, '')}/`).toString() : sitePath;
 }
 

@@ -43,7 +43,8 @@
 
         <div class="navigation-tools">
             <button type="button" class="utility-link" onclick={scrollToTop}>top</button>
-            <a class="utility-link" href={resolve('/posts')}>posts</a>
+
+            <a class="utility-link" href={resolve('posts')}>posts</a>
         </div>
 
         {#if nextPost}
