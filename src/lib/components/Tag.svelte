@@ -12,7 +12,6 @@
     } = $props();
 </script>
 
-<!-- eslint-disable svelte/no-navigation-without-resolve -- getTagHref returns a resolved URL -->
 <a
     class="tag-link"
     class:active

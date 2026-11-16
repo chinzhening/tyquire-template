@@ -18,7 +18,6 @@
 </script>
 
 {#snippet postLink(post: PublishedPost, direction: 'previous' | 'next')}
-    <!-- eslint-disable svelte/no-navigation-without-resolve -- already resolved, in posts.ts:20 -->
     <a
         class:previous={direction === 'previous'}
         class:next={direction === 'next'}
@@ -30,7 +29,6 @@
         </span>
         <span class="nav-title">{post.title}</span>
     </a>
-    <!-- eslint-enable svelte/no-navigation-without-resolve -->
 {/snippet}
 
 <nav class="post-navigation" aria-label="Post navigation">

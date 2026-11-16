@@ -24,7 +24,6 @@
                             ></td
                         >
                         <td>
-                            <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- post.href is resolved in posts.ts -->
                             <a href={post.href}>{post.title}</a>
                         </td>
                     </tr>

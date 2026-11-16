@@ -113,7 +113,7 @@ export function getPosts(): PublishedPost[] {
         const slug = path.split('/').at(-1)!.replace('.typ', '');
         return {
             slug,
-            href: resolve(`posts/${slug}`),
+            href: resolve('/posts/[slug]', { slug }),
             ...validatePostMetadata(mod.metadata, path)
         } as PostEntry;
     });
