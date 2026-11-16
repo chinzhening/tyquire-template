@@ -3,7 +3,7 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 
-import tyquire, { shikiHighlight } from './plugins/tyquire/src/index.ts';
+import tyquire, { shikiHighlight } from 'tyquire';
 
 const basePath = process.env.BASE_PATH?.replace(/\/$/, '');
 

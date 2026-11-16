@@ -1,4 +1,4 @@
-# Mirrors .prettierrc so the editor and `npm run format` never disagree.
+# Mirrors .prettierrc so the editor and `pnpm format` never disagree.
 root = true
 
 [*]
