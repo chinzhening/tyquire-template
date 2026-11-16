@@ -11,8 +11,8 @@ const base: '' | `/${string}` =
     process.argv.includes('dev') || !basePath
         ? ''
         : basePath.startsWith('/')
-          ? (basePath as `/${string}`)
-          : `/${basePath}`;
+            ? (basePath as `/${string}`)
+            : `/${basePath}`;
 
 export default defineConfig({
     plugins: [
@@ -32,7 +32,6 @@ export default defineConfig({
                     filename.split(/[/\\]/).includes('node_modules') ? undefined : true
             },
             adapter: adapter({ fallback: '404.html' }),
-            alias: { $tyquire: 'plugins/tyquire/src' },
             paths: { base }
         })
     ]

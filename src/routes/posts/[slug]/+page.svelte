@@ -6,7 +6,7 @@
     import PostNavigation from '#lib/components/PostNavigation.svelte';
     import { components } from '#lib/components/article/components.ts';
     import { formatDate, toKebabCase } from '#lib/utils.ts';
-    import TypstRenderer from '$tyquire/svelte/TypstRenderer.svelte';
+    import TypstRenderer from '#tyquire/svelte/TypstRenderer.svelte';
 
     import type { PageProps } from './$types';
 

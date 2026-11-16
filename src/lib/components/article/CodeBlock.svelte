@@ -1,7 +1,7 @@
 <script lang="ts">
     import '#lib/css/shiki.css';
 
-    import type { TypstComponentProps } from '$tyquire/svelte/types';
+    import type { TypstComponentProps } from '#tyquire/svelte/types.ts';
 
     let { props }: TypstComponentProps = $props();
 

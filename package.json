@@ -50,6 +50,8 @@
     },
     "imports": {
         "#lib": "./src/lib/index.js",
-        "#lib/*": "./src/lib/*"
+        "#lib/*": "./src/lib/*",
+        "#tyquire": "./plugins/tyquire/src/index.ts",
+        "#tyquire/*": "./plugins/tyquire/src/*"
     }
 }

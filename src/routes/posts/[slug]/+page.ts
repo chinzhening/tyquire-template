@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
 
 import { getPrevAndNextPostLinks } from '#lib/posts.ts';
-import type { TypstNode } from '$tyquire';
+import type { TypstNode } from '#tyquire';
 
 export async function load({ params, parent }) {
     const document = await importPostDocument(params.slug).catch(() => null);

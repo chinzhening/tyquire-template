@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import type { TypstComponentProps } from '$tyquire/svelte/types';
+    import type { TypstComponentProps } from '#tyquire/svelte/types.ts';
 
     let { props }: TypstComponentProps = $props();
     let canvas: HTMLCanvasElement;
