@@ -11,7 +11,7 @@
         <p>Tyquire is a minimal blog template built with SvelteKit and Typst.</p>
         <ul>
             <li>Typst v0.15.0</li>
-            <li>Svelte 5 and SvelteKit 2</li>
+            <li>Svelte 5 and SvelteKit 3</li>
         </ul>
         <h1>2. Features</h1>
         <p>The template includes the essentials for publishing technical writing:</p>
