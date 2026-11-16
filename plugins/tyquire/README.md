@@ -18,7 +18,7 @@ currently private and is not published as an npm package.
 Add the plugin to `vite.config.ts`:
 
 ```ts
-import { sveltekit } from '@sveltejs/kit/vite';
+...
 import { defineConfig } from 'vite';
 
 import tyquire, { shikiHighlight } from './plugins/tyquire/src/index.ts';
@@ -32,7 +32,7 @@ export default defineConfig({
                 })
             ]
         }),
-        sveltekit()
+        ...
     ]
 });
 ```
@@ -59,7 +59,7 @@ interface PostMetadata {
 ```
 
 Tyquire validates the serialized Typst query envelope and reports the source
-file when the query cannot be parsed or contains no metadata value. The
+file when the query cannot be parsed or contains no metadata value.
 The blog template additionally validates this concrete schema when it loads
 posts. Invalid field types, missing required values, invalid dates, empty tag
 values, or an `edited_date` earlier than `publish_date` produce an error that
@@ -73,7 +73,7 @@ Use `TypstRenderer` with a component registry to render the compiled nodes:
 ```svelte
 <script lang="ts">
     import { components } from '#lib/components/article/components.ts';
-    import TypstRenderer from '$tyquire/svelte/TypstRenderer.svelte';
+    import TypstRenderer from '#tyquire/svelte/TypstRenderer.svelte';
 
     let { nodes } = $props();
 </script>
@@ -91,8 +91,8 @@ available through `TypstComponentProps`.
 From the repository root:
 
 ```sh
-npm run check
-npm run build
+pnpm check
+pnpm build
 ```
 
 The plugin depends on Typst's HTML export, which is still experimental. Build
