@@ -5,6 +5,15 @@ import tailwindcss from '@tailwindcss/vite';
 
 import tyquire, { shikiHighlight } from './plugins/tyquire/src/index.ts';
 
+const basePath = process.env.BASE_PATH?.replace(/\/$/, '');
+
+const base: '' | `/${string}` =
+    process.argv.includes('dev') || !basePath
+        ? ''
+        : basePath.startsWith('/')
+          ? (basePath as `/${string}`)
+          : `/${basePath}`;
+
 export default defineConfig({
     plugins: [
         tyquire({
@@ -24,9 +33,7 @@ export default defineConfig({
             },
             adapter: adapter({ fallback: '404.html' }),
             alias: { $tyquire: 'plugins/tyquire/src' },
-            paths: {
-                base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
-            }
+            paths: { base }
         })
     ]
 });

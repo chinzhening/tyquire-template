@@ -17,7 +17,6 @@
 <Seo
     title={metadata.title}
     description={metadata.desc}
-    path={`/posts/${data.slug}`}
     type="article"
     publishedAt={metadata.publish_date}
 />

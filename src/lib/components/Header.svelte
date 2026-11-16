@@ -43,7 +43,6 @@
         <nav class="items-center flex font-monospace lowercase text-dim-foreground">
             <!-- Block form, not disable-next-line: the href sits mid-tag and the
                  directive can only target the line after it. -->
-            <!-- eslint-disable svelte/no-navigation-without-resolve -- already resolved, in config.ts:8-10 -->
             {#each pages as navPage (navPage.name)}
                 <a
                     class="
@@ -57,7 +56,6 @@
                     >{navPage.name}</a
                 >
             {/each}
-            <!-- eslint-enable svelte/no-navigation-without-resolve -->
 
             <!-- Dark mode toggle -->
             <button

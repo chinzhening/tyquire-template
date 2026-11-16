@@ -6,7 +6,7 @@
     let { data }: PageProps = $props();
 </script>
 
-<Seo title="Posts" path="/posts" />
+<Seo title="Posts" />
 
 <main id="main" class="posts-page">
     <section class="posts-content">

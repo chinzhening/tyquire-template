@@ -14,7 +14,7 @@
     let matchingPosts = $derived(getPostsByTag(data.posts, selectedTag));
 </script>
 
-<Seo title="Tags" path="/tags" />
+<Seo title="Tags" />
 
 <main id="main" class="tags-page">
     <div class="tags-content">

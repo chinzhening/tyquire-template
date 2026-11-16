@@ -42,8 +42,8 @@ Write the post here.
 
 ## Commands
 
-| Command           | Description                        |
-| ----------------- | ---------------------------------- |
+| Command        | Description                        |
+| -------------- | ---------------------------------- |
 | `pnpm dev`     | Start the development server       |
 | `pnpm build`   | Build the static site              |
 | `pnpm preview` | Preview the production build       |

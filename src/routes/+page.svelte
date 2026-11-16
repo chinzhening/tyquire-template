@@ -3,7 +3,7 @@
     import Seo from '#lib/components/Seo.svelte';
 </script>
 
-<Seo title={config.title} path="/" />
+<Seo title={config.title} />
 
 <main id="main" class="page-prose">
     <div class="page-content">
