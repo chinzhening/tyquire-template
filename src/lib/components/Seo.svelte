@@ -1,33 +1,23 @@
 <script lang="ts">
-    import { base } from '$app/paths';
+    import { page } from '$app/state';
     import {
         description as siteDescription,
-        siteUrl,
         socialImageUrl,
         title as siteTitle
-    } from '$lib/config';
+    } from '#lib/config.ts';
 
     interface Props {
         title: string;
         description?: string;
-        path: string;
         type?: 'article' | 'website';
         publishedAt?: string;
     }
 
-    let {
-        title,
-        description = siteDescription,
-        path,
-        type = 'website',
-        publishedAt
-    }: Props = $props();
+    let { title, description = siteDescription, type = 'website', publishedAt }: Props = $props();
 
     const pageTitle = $derived(title === siteTitle ? siteTitle : `${title} | ${siteTitle}`);
-    const canonicalPath = $derived(`${base}${path}`);
-    const canonicalUrl = $derived(
-        siteUrl ? new URL(canonicalPath, `${siteUrl.replace(/\/+$/, '')}/`).toString() : undefined
-    );
+    const path = $derived(page.url.pathname);
+    const canonicalUrl = $derived(page.url.origin + path);
     const imageUrl = $derived(socialImageUrl || undefined);
 </script>
 

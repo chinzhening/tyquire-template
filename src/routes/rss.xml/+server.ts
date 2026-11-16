@@ -1,6 +1,8 @@
-import { description, title } from '$lib/config';
-import { getPosts } from '$lib/posts';
-import { escapeXml, getSiteUrl } from '$lib/seo';
+import { resolve } from '$app/paths';
+
+import { description, title } from '#lib/config.ts';
+import { getPosts } from '#lib/posts.ts';
+import { escapeXml } from '#lib/seo.ts';
 
 export const prerender = true;
 
@@ -8,7 +10,7 @@ export function GET() {
     const posts = getPosts();
     const items = posts
         .map((post) => {
-            const url = getSiteUrl(`/posts/${post.slug}`);
+            const url = resolve('/posts/[slug]', { slug: post.slug });
             const publishedAt = new Date(post.publish_date).toUTCString();
 
             return [
@@ -23,14 +25,14 @@ export function GET() {
         })
         .join('\n');
 
-    const feedUrl = getSiteUrl('/rss.xml');
+    const feedUrl = resolve('/rss.xml');
     const content = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
         '  <channel>',
         `    <title>${escapeXml(title)}</title>`,
         `    <description>${escapeXml(description)}</description>`,
-        `    <link>${escapeXml(getSiteUrl('/'))}</link>`,
+        `    <link>${escapeXml(resolve('/'))}</link>`,
         `    <atom:link href="${escapeXml(feedUrl)}" rel="self" type="application/rss+xml" />`,
         `    <lastBuildDate>${posts.length ? new Date(posts[0].publish_date).toUTCString() : new Date(0).toUTCString()}</lastBuildDate>`,
         items,

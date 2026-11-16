@@ -1,7 +1,7 @@
 <script lang="ts">
-    import '$lib/css/shiki.css';
+    import '#lib/css/shiki.css';
 
-    import type { TypstComponentProps } from '$tyquire/svelte/types';
+    import type { TypstComponentProps } from '#tyquire/svelte/types.ts';
 
     let { props }: TypstComponentProps = $props();
 
@@ -42,11 +42,7 @@
 </script>
 
 <!-- Styled from article.css under `.typst`, like Callout and FigureBlock. -->
-<div
-    role="group"
-    aria-label={`${language} code`}
-    class="code-block relative"
->
+<div role="group" aria-label={`${language} code`} class="code-block relative">
     <div class="px-4 pt-1 flex justify-between">
         <div class="flex items-center text-xs font-monospace uppercase tracking-widest">
             {language}

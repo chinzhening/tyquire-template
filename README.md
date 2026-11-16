@@ -8,7 +8,7 @@ and renders those blocks with Svelte components.
 
 ## Requirements
 
-- Node.js 22 or newer.
+- Node.js 22.17 or newer.
 - Pnpm 12.17.0
 - Typst 0.15.0 or newer with HTML export support.
 - Typst output uses the fonts available to the Typst process. Set
@@ -42,8 +42,8 @@ Write the post here.
 
 ## Commands
 
-| Command           | Description                        |
-| ----------------- | ---------------------------------- |
+| Command        | Description                        |
+| -------------- | ---------------------------------- |
 | `pnpm dev`     | Start the development server       |
 | `pnpm build`   | Build the static site              |
 | `pnpm preview` | Preview the production build       |
@@ -59,8 +59,7 @@ Write the post here.
 - `src/routes/posts/` - Post archive and article routes.
 - `src/routes/tags/` - Query-based tag filtering.
 - `plugins/tyquire/` - The Tyquire Vite plugin and Svelte renderer.
-- `vite.config.ts` - Tyquire and Shiki integration.
-- `svelte.config.js` - SvelteKit adapter and the `$tyquire` alias.
+- `vite.config.ts` - Tyquire, Shiki, and SvelteKit configuration (adapter, base path, compiler options).
 
 ## Static deployment
 

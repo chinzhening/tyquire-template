@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
 
-import { getPrevAndNextPostLinks } from '$lib/posts';
-import type { TypstNode } from '$tyquire';
+import { getPrevAndNextPostLinks } from '#lib/posts.ts';
+import type { TypstNode } from '#tyquire';
 
 export async function load({ params, parent }) {
     const document = await importPostDocument(params.slug).catch(() => null);
@@ -19,9 +19,9 @@ export async function load({ params, parent }) {
         edited_date: post.edited_date,
         tags: post.tags
     };
-    
+
     const { prevPost, nextPost } = getPrevAndNextPostLinks(posts, params.slug);
-    
+
     return {
         slug: params.slug,
         metadata,

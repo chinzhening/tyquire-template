@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { TypstComponentProps } from '$tyquire/svelte/types';
+    import type { TypstComponentProps } from '#tyquire/svelte/types.ts';
 
     let { props, children }: TypstComponentProps = $props();
     let label = $derived((props.label as string | undefined) ?? 'Note');

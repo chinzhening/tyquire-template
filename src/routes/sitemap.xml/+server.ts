@@ -1,5 +1,6 @@
-import { getPosts } from '$lib/posts';
-import { escapeXml, getSiteUrl } from '$lib/seo';
+import { resolve } from '$app/paths';
+import { getPosts } from '#lib/posts.ts';
+import { escapeXml } from '#lib/seo.ts';
 
 export const prerender = true;
 
@@ -9,10 +10,10 @@ export function GET() {
         '/about',
         '/posts',
         '/tags',
-        ...getPosts().map((post) => `/posts/${post.slug}`)
+        ...getPosts().map((post) => resolve('/posts/[slug]', { slug: post.slug }))
     ];
     const urls = paths
-        .map((path) => `  <url>\n    <loc>${escapeXml(getSiteUrl(path))}</loc>\n  </url>`)
+        .map((path) => `  <url>\n    <loc>${escapeXml(path)}</loc>\n  </url>`)
         .join('\n');
 
     return new Response(

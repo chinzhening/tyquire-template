@@ -1,9 +1,9 @@
 <script lang="ts">
-    import * as config from '$lib/config';
-    import Seo from '$lib/components/Seo.svelte';
+    import * as config from '#lib/config.ts';
+    import Seo from '#lib/components/Seo.svelte';
 </script>
 
-<Seo title={config.title} path="/" />
+<Seo title={config.title} />
 
 <main id="main" class="page-prose">
     <div class="page-content">
@@ -11,7 +11,7 @@
         <p>Tyquire is a minimal blog template built with SvelteKit and Typst.</p>
         <ul>
             <li>Typst v0.15.0</li>
-            <li>Svelte 5 and SvelteKit 2</li>
+            <li>Svelte 5 and SvelteKit 3</li>
         </ul>
         <h1>2. Features</h1>
         <p>The template includes the essentials for publishing technical writing:</p>

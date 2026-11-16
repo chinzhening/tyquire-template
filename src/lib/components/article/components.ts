@@ -1,6 +1,6 @@
 import type { Component } from 'svelte';
 
-import type { TypstComponentProps } from '$tyquire/svelte/types';
+import type { TypstComponentProps } from '#tyquire/svelte/types.ts';
 
 import CodeBlock from './CodeBlock.svelte';
 import FigureBlock from './FigureBlock.svelte';

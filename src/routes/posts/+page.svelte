@@ -1,12 +1,12 @@
 <script lang="ts">
-    import { formatDate } from '$lib/utils';
-    import Seo from '$lib/components/Seo.svelte';
+    import { formatDate } from '#lib/utils.ts';
+    import Seo from '#lib/components/Seo.svelte';
     import type { PageProps } from './$types';
 
     let { data }: PageProps = $props();
 </script>
 
-<Seo title="Posts" path="/posts" />
+<Seo title="Posts" />
 
 <main id="main" class="posts-page">
     <section class="posts-content">
@@ -24,7 +24,6 @@
                             ></td
                         >
                         <td>
-                            <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- post.href is resolved in posts.ts -->
                             <a href={post.href}>{post.title}</a>
                         </td>
                     </tr>

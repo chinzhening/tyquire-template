@@ -1,6 +1,6 @@
 /// <reference path="../plugins/tyquire/src/client.d.ts" />
 
-import type { PostMetadata } from '$lib/types';
+import type { PostMetadata } from '#lib/types.ts';
 
 declare namespace Tyquire {
     interface Metadata extends PostMetadata {}
